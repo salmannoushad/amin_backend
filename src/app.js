@@ -10,12 +10,14 @@ dotenv.config();
 connectDB();
 
 const app = express();
+// Enable CORS for all routes
+app.use(cors());
+
 app.use(express.json()); // Body parser middleware
 app.use('/api',       userRoutes);
 app.use('/api/medical-tests', medicalTestsRouter);
 
-// Enable CORS for all routes
-app.use(cors());
+
 
 // Routes
 app.use('/api', userRoutes);
